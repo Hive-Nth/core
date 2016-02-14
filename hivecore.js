@@ -1,12 +1,19 @@
-var static = require('node-static');
-var file = new static.Server('./UI');
+var app       =     require("express")();
+var http      =     require('http').Server(app);
+var io        =     require("socket.io")(http);
 
-//Define
-var hive = require('http').createServer(function(request, response) {
-    request.addListener('end', function() {
-        file.serve(request, response);
-    }).resume();
+app.get("/",function(req,res){
+    res.sendFile(__dirname + '/index.html');
 });
 
-var io = require('socket.io')(hive);
-hive.listen(process.env.PORT || 8080);
+var server_port = process.env.OPENSHIFT_NODEJS_PORT || 8080
+var server_ip_address = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1'
+
+http.listen(server_port, server_ip_address, function () {
+console.log( "Listening on " + server_ip_address + ", server_port " + server_port )
+});
+/////////////////////////////////////////
+/*http.listen(2810,function(){          //
+    console.log("Listening on 2810");//>--DONT TOUCH--|
+});  */                               //
+/////////////////////////////////////

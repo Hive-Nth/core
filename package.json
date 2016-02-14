@@ -8,9 +8,14 @@
   "author": "Burningsoul",
     "dependencies": {
         "socket.io": "~1.0.6",
-        "node-static": "~0.7.4"
+        "express"   : "~4.11.2",
+        "mongodb":"2.1.0"
     },
     "engines": {
         "node": "0.10.x"
-    }
+    },
+    "scripts": {
+"start": "node hivecore.js"
+},
+"main": "hivecore.js"
 }
