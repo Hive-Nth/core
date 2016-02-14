@@ -1,0 +1,16 @@
+{
+  "name": "Hive",
+  "description": "The hive",
+  "version": "0.1.0",
+  "keywords": [
+    "hive,burningsoul,RTC,web,"
+  ],
+  "author": "Burningsoul",
+    "dependencies": {
+        "socket.io": "~1.0.6",
+        "node-static": "~0.7.4",
+    },
+    "engines": {
+        "node": "0.10.x"
+    }
+}
